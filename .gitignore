@@ -1,0 +1,32 @@
+# Dependenices
+/node_modules
+
+# Caches from Node.js
+npm-debug.log
+
+# Env
+cypress.env.json
+
+# Generated files
+/cypress/screenshots
+/cypress/videos
+
+# IDE files
+/.vscode
+/.idea
+
+# System files of MacOS
+.DS_Store
+
+# Build files
+/build
+/dist
+
+# Temp files
+*.tmp
+*.temp
+*.swp
+
+# Other
+/reports
+/cypress/results
