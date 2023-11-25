@@ -6,6 +6,7 @@ npm-debug.log
 
 # Env
 cypress.env.json
+.env
 
 # Generated files
 /cypress/screenshots
