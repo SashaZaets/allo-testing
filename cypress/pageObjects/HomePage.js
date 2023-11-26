@@ -42,7 +42,14 @@ class HomePage {
     });
   }
 
+  inputTextToSearch(text) {
+    cy.get("#search-form__input").type(text).blur()
+    cy.get(".search-form__submit-button").click();
+  }
 
+  clearInputToSearch() {
+    cy.get("#search-form__input").clear();
+  }
 }
 
 export const homePage = new HomePage();
