@@ -35,6 +35,19 @@ class BasketPage {
     });
   }
 
+  clearBasket() {
+    cy.get(".products__list .products_list_item").then($items => {
+      if ($items.length > 0) {
+        cy.wrap($items).each(($item, index, $list) => {
+          cy.wrap($item).find(".vi__close.remove").click();
+          cy.wait(2000); // Wait for updating basket after deleting item
+        });
+
+        cy.get(".products__list").should('not.exist');
+      }
+    });
+  }
+
   verifyDeleteButtonClickable() {
     cy.get(".products__list .products_list_item").first().find(".vi__close.remove").should('be.visible');
     // We could also check if .vi__close.remove button doesn't have "disabled=true" attribute, but it's tag is svg not button
