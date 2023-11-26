@@ -12,19 +12,37 @@ class HomePage {
     cy.url().should("eq", Cypress.env("BASE_URL"));
   }
 
-  goToAppleStore() {
-    cy.contains('a[href="https://allo.ua/ua/apple-store/"]', "Apple").click({
+  goToStore(selector, text) {
+    cy.contains(selector, text).click({
       force: true,
     });
   }
 
-  selectMacSection() {
-    cy.contains('a[href="#mac-section"]', "Mac").click({ force: true });
+  selectCategory(selector, option) {
+    cy.contains(selector, option).click({ force: true });
   }
 
   openMoreDetails() {
     cy.contains(".button-more-detalis", "Детальніше").click();
   }
+
+  closeBasketModal() {
+    cy.get(".v-modal__close-btn").click();
+    cy.wait(1000);
+  }
+
+  openCatalog() {
+    cy.window().then((window) => {
+      if (window.innerWidth > 1024) {
+        cy.get(".ct-button").click();
+      } else {
+        cy.get(".mh-burger__btn").click();
+        cy.get(".mh-catalog-btn").click();
+      }
+    });
+  }
+
+
 }
 
-export const homePage = new HomePage()
+export const homePage = new HomePage();

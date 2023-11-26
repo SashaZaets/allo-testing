@@ -2,15 +2,15 @@
 
 /// JSON fixture file can be loaded directly using
 // the built-in JavaScript bundler
-const requiredExample = require('../../fixtures/example')
+const requiredExample = require('../../fixtures/filters.json')
 
 context('Files', () => {
   beforeEach(() => {
     cy.visit('https://example.cypress.io/commands/files')
 
-    // load example.json fixture file and store
+    // load filters.json fixture file and store
     // in the test context object
-    cy.fixture('example.json').as('example')
+    cy.fixture('filters.json').as('example')
   })
 
   it('cy.fixture() - load a fixture', () => {
@@ -20,8 +20,8 @@ context('Files', () => {
     // use a fixture file's content.
 
     // when application makes an Ajax request matching "GET **/comments/*"
-    // Cypress will intercept it and reply with the object in `example.json` fixture
-    cy.intercept('GET', '**/comments/*', { fixture: 'example.json' }).as('getComment')
+    // Cypress will intercept it and reply with the object in `filters.json` fixture
+    cy.intercept('GET', '**/comments/*', { fixture: 'filters.json' }).as('getComment')
 
     // we have code that gets a comment when
     // the button is clicked in scripts.js

@@ -1,6 +1,7 @@
 import { removeNonNumbers } from "../utils";
+import {homePage} from "./HomePage";
 
-let instance
+let instance;
 class ProductPage {
   constructor() {
     if (instance) {
@@ -20,9 +21,18 @@ class ProductPage {
     });
   }
 
-  verifyPriceRange(minPrice, maxPrice) {
+  getCurrentProductsWithFilters() {
     cy.wait(10 * 1000); // wait for applying filters
-    cy.get(".products-layout__container .product-card").each(($card) => {
+    return cy.get(".products-layout__container .product-card");
+  }
+
+  async getCurrentProducts() {
+    return cy.get(".products-layout__container .product-card");
+  }
+
+  verifyPriceRange(minPrice, maxPrice) {
+    const currentProducts = this.getCurrentProductsWithFilters();
+    currentProducts.each(($card) => {
       const priceText =
         $card.find(".v-pb__cur.discount .sum").text().trim() ||
         $card.find(".v-pb__cur .sum").text().trim();
@@ -32,5 +42,13 @@ class ProductPage {
       expect(price).to.be.at.most(maxPrice);
     });
   }
+
+  async addProductToBasket(index) {
+    this.getCurrentProducts().then(currentProducts => {
+      cy.wrap(currentProducts).eq(index).find(".v-btn--cart").click();
+      homePage.closeBasketModal();
+    });
+  }
+
 }
-export const productPage = new ProductPage()
+export const productPage = new ProductPage();
