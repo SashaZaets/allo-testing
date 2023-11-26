@@ -1,1 +1,1 @@
-# rozetka-testing
+# allo-testing
