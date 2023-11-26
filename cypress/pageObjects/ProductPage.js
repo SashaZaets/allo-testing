@@ -14,6 +14,7 @@ class ProductPage {
   applyFilters(filterDataIds, priceRange) {
     filterDataIds.forEach((id) => {
       cy.get(`[data-id=${id}]`).click();
+      // we could use cy.check() if it will be <input type=checkbox/> but it's <a/> tag
     });
 
     priceRange.forEach((price, i) => {
