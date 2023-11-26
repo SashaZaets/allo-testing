@@ -8,10 +8,6 @@ npm-debug.log
 cypress.env.json
 .env
 
-# Generated files
-/cypress/screenshots
-/cypress/videos
-
 # IDE files
 /.vscode
 /.idea
@@ -31,3 +27,6 @@ cypress.env.json
 # Other
 /reports
 /cypress/results
+/cypress/screenshots
+/cypress/videos
+mochawesome.json
