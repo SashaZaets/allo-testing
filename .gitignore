@@ -29,3 +29,4 @@ cypress.env.json
 /cypress/results
 /cypress/screenshots
 /cypress/videos
+mochawesome.json
