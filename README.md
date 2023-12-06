@@ -5,7 +5,7 @@
 This repository includes testing of the https://allo.ua/ua/
 
 ### How to run
-Swith to branch `dev`
+Switch to branch `dev`
 
 
 `npm install` - add all necessary dependencies
