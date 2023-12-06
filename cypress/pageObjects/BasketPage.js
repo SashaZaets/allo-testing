@@ -4,7 +4,7 @@ let instance;
 class BasketPage {
   constructor() {
     if (instance) {
-      console.error("New instance cannot be created");
+      console.error("New instance can not be created");
     } else {
       instance = this;
     }
